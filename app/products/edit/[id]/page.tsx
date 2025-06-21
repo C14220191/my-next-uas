@@ -72,7 +72,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
             <Navbar />
             <section className="py-8 px-4">
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="text-2xl font-bold mb-6">Edit Product role: {roles}</h1>
+                    <h1 className="text-2xl font-bold mb-6">Edit Product</h1>
                     {error && <p className="text-red-500">{error}</p>}
                     <div className="mb-4">
                         <label className="block mb-2">Product Name</label>
