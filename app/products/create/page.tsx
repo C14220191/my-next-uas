@@ -16,7 +16,7 @@ export default function CreateProductPage() {
     const roles = Cookies.get("role");
 
     useEffect(() => {
-        if(roles){
+        if(!roles){
             router.push("/signin");
             return;
         }else if (roles !== "admin") {
@@ -34,7 +34,7 @@ export default function CreateProductPage() {
         }
         const { data, error } = await supabase
             .from("products")
-            .insert([{ name: productName, price: productPrice, quantity: productQuantity }]);
+            .insert([{ nama_produk: productName, harga_satuan: productPrice, quantity: productQuantity }]);
 
         if (error) {
             setError(error.message);
@@ -50,7 +50,6 @@ export default function CreateProductPage() {
             <section className="py-8 px-4">
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-2xl font-bold mb-6">Create Product</h1>
-                    <p>Role: {roles}</p>
                     {error && <p className="text-red-500">{error}</p>}
                     <div className="mb-4">
                         <label className="block mb-2">Product Name</label>
